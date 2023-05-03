@@ -1,4 +1,24 @@
-const gastosInput = document.querySelector('#gastos')
+let presupuesto
+class Presupuesto {
+    constructor(presupuesto) {
+        this.gastos = []
+    }
+}
+
+
+function preguntarPresupuesto() {
+    const presupuestoUsuario = prompt("Ingrese el presupuesto")
+
+
+
+    if (presupuestoUsuario === '' || presupuestoUsuario === null || isNaN(presupuestoUsuario) || presupuestoUsuario <= 0) {
+
+        window.location.reload()
+
+    }
+    presupuesto = new Presupuesto(presupuestoUsuario)
+
+    const gastosInput = document.querySelector('#gastos')
 const cantidadInput = document.querySelector('#cantidad')
 
 const totalInput = document.querySelector('#total')
@@ -8,13 +28,14 @@ const restanteInput = document.querySelector('#restante')
 const formulario = document.querySelector('#agregar-cantidad')
 formulario.addEventListener('submit', agregar-cantidad)
 
-eventListener()
+    eventListener()
 
 function eventListener(){
     gastosInput.addEventListener('change', datos)
     cantidadInput.addEventListener('change', datos)
     totalInput.addEventListener('change', datos)
     restanteInput.addEventListener('change', datos)
+    document.addEventListener("DOMContentLoaded", preguntarPresupuesto)
 }
 
 const cantidadObject = {
@@ -54,7 +75,7 @@ class UI {
         document.querySelector('#contenido').insertBefore(divAlert, document.querySelector('.agregar-cantidad'))
     
     }
-}
+
 
 imprimirCantidades({ cantidad }){
     this.limpiarHTML()
@@ -66,7 +87,7 @@ imprimirCantidades({ cantidad }){
         divCantidad.classList.add('cantidad')
         divCantidad.dataset.id = id
 
-        const gastosParrafo = document.createElement(h2)
+        const gastosParrafo = document.createElement(div)
         gastosParrafo.classList.add('card-title', 'font-weight-bolder')
         gastosParrafo.innerHTML = `${gastos}`
 
@@ -84,3 +105,11 @@ limpiarHTML(){
         contenedoCantidades.removeChild(contenedoCantidades)
     }
 }
+}
+
+}
+
+
+
+
+
